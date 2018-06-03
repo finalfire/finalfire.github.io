@@ -27,7 +27,7 @@ var random_base_from_list = function() {
 }
 
 var from_base_10 = function() {
-    var n = genrand(1, 8192);
+    var n = genrand(1, 16384);
     var b = random_base_from_list();
     var r = to_base_n(n, b);
 
@@ -36,7 +36,7 @@ var from_base_10 = function() {
 }
 
 var to_base_10 = function() {
-    var n = genrand(1, 8192);
+    var n = genrand(1, 16384);
     var b = random_base_from_list();
     var r = to_base_n(n, b);
 
