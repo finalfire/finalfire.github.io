@@ -3,3 +3,4 @@ Hello there! The following links point to few resources about concepts, exercise
 ## Contents
 
 - [Building a simple frequency counter in Rust](rust/simple-counter/README.md).
+- [Punti 2D e Serie Temporali](fondamenti/ex/timeseries/README.md) [Fondamenti, DEMACS].
