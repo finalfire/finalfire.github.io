@@ -21,3 +21,13 @@ L'implementazione è distinta in diverse parti (da fare insieme a tutoraggio opp
 ## Parte 1: la classe Point2D.h
 
 La classe `Point2D` modella un punto in 2D. Nello specifico, un punto `p` è rappresentato da due coordinate `(x,y)`. In questa implementazione, `x` è una coordinata intera, mentre `y` può essere definita come intera o razionale (`float` o `double`).
+
+In particolare, la classe deve prevedere le seguenti funzionalità:
+
+- Istanziare un punto 2D (in `(0,0)` oppure con le coordinate fornite dall'utente),
+- Copiare un punto 2D a partire da un altro punto 2D,
+- Verificare se due punti 2D sono uguali o diversi,
+- Effettuare la somma di due punti 2D (dove la somma è definita come la somma delle rispettive componenti),
+- Effettuare la differenza di due punti 2D (dove la differenza è definita come la differenza delle rispettive componenti),
+- Accedere a e modificare le componenti `x` e `y`,
+- Una funzione definita come `friend` che permetta di stampare due punti su standard input (i.e., `cout`).
