@@ -20,7 +20,7 @@ L'implementazione è distinta in diverse parti (da fare insieme a tutoraggio opp
 
 ## Parte 1: la classe Point2D.h
 
-La classe `Point2D` modella un punto in 2D. Nello specifico, un punto `p` è rappresentato da due coordinate `(x,y)`. In questa implementazione, `x` è una coordinata intera, mentre `y` può essere definita come intera o razionale (`float` o `double`).
+La classe `Point2D` modella un punto in 2D. Nello specifico, un punto `p` è rappresentato da due coordinate `(x,y)`. Nella implementazione da effettuare, `x` è una coordinata intera, mentre `y` può essere definita come intera (`int`) o razionale (`float` o `double`).
 
 In particolare, la classe deve prevedere le seguenti funzionalità:
 
