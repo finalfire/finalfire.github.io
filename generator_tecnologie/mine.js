@@ -92,22 +92,6 @@ var primo = function() {
     var x = gennum(60, 480, 0, 99);
     var e = gennum(1, 5, 0, 99);
 
-    /*var p_int = genrand(4, 22);
-    var p_decimal = genrand(0, 99);
-    var p;
-    if (Math.random() > 0.5)
-        p = p_int + (p_decimal / 100);
-    else
-        p = p_int
-
-    var x_int = genrand(60, 200);
-    var x_decimal = genrand(0, 99);
-    var x;
-    if (Math.random() > 0.5)
-        x = x_int + (x_decimal / 100);
-    else
-        x = x_int*/
-
     var s_int = genrand(0, 3);
     var s_decimal = genrand(0, 99);
     var s;
@@ -118,13 +102,6 @@ var primo = function() {
         s = s_int
     } while (s == 0.0)
 
-    /*var e_int = genrand(1, 5);
-    var e_decimal = genrand(0, 99);
-    var e;
-    if (Math.random() > 0.5)
-        e = e_int + (e_decimal / 100);
-    else
-        e = e_int*/
 
     var nome_x = farmaci[genrand(0, farmaci.length)];
     var nome_p = farmaci[genrand(0, farmaci.length)];
@@ -134,5 +111,4 @@ var primo = function() {
     
     $('#fb10').append(result_element(nome_p, p, nome_x, x, s, e));
     i += 1;
-
 }
