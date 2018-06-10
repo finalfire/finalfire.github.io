@@ -31,3 +31,28 @@ In particolare, la classe deve prevedere le seguenti funzionalità:
 - Effettuare la differenza di due punti 2D (dove la differenza è definita come la differenza delle rispettive componenti),
 - Accedere a e modificare le componenti `x` e `y`,
 - Una funzione definita come `friend` che permetta di stampare un punto su standard output (i.e., `cout`).
+
+## Parte 2: la classe TimeSeries.h
+
+La classe TS rappresenta una serie temporale (nell'accezione data poco sopra). In particolare, la classe deve contenere una serie di punti contigui e deve dare la possibilità di aggiungerne di nuovi o rimuoverli. Attenzione: la contiguità deve essere sempre mantenuta. Con contiguità si intende che la coordinata x di tutti i punti deve essere contigua.
+
+Esempio di serie temporale corretta (la contiguità è mantenuta):
+```
+(0, 3), (1, 4), (2, 2), (3, -2), (4, -6)
+```
+
+Esempio di serie temporale non corretta:
+```
+(0, 3), (1, 4), (3, 5), (4, -2), (5, -6)
+```
+
+La classe deve prevedere le seguenti funzionalità:
+
+- Creazione di una serie temporale vuota,
+- Creazione di una serie temporale a partire da un array di punti 2D,
+- Copiare una serie temporale a partire da un'altra serie temporale,
+- Verificare se la contiguità di una serie temporale è mantenuta o meno,
+- Verificare se due serie temporali sono uguali o differenti (due serie temporali sono uguali se contengono gli stessi punti 2D nello stesso ordine),
+- Aggiungere un punto 2D in coda ad una serie temporale,
+- Rimuovere un punto 2D in coda ad una serie temporale,
+- Rimuovere un punto 2D in testa alla serie temporale (e traslare tutte le coordinate x dei punti 2D seguenti di -1).
