@@ -34,7 +34,7 @@ In particolare, la classe deve prevedere le seguenti funzionalità:
 
 ## Parte 2: la classe TimeSeries.h
 
-La classe TS rappresenta una serie temporale (nell'accezione data poco sopra). In particolare, la classe deve contenere una serie di punti contigui e deve dare la possibilità di aggiungerne di nuovi o rimuoverli. Attenzione: la contiguità deve essere sempre mantenuta. Con contiguità si intende che la coordinata x di tutti i punti deve essere contigua.
+La classe TS rappresenta una serie temporale (nell'accezione data poco sopra). In particolare, la classe deve contenere una serie di punti contigui e deve dare la possibilità di aggiungerne di nuovi o rimuoverli. Attenzione: la contiguità deve essere sempre mantenuta. Con contiguità si intende che, dati due punti in posizione `i` e `i+1` con coordinate `(a,b), (c,d)`, essi sono contigui sse `c = a+1`.
 
 Esempio di serie temporale corretta (la contiguità è mantenuta):
 ```
@@ -55,4 +55,4 @@ La classe deve prevedere le seguenti funzionalità:
 - Verificare se due serie temporali sono uguali o differenti (due serie temporali sono uguali se contengono gli stessi punti 2D nello stesso ordine),
 - Aggiungere un punto 2D in coda ad una serie temporale,
 - Rimuovere un punto 2D in coda ad una serie temporale,
-- Rimuovere un punto 2D in testa alla serie temporale (e traslare tutte le coordinate x dei punti 2D seguenti di -1).
+- Rimuovere un punto 2D in testa alla serie temporale (e traslare tutte le coordinate `x` dei punti 2D seguenti di -1).
