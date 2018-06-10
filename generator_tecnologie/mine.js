@@ -71,7 +71,19 @@ var result_element = function(nome_p, p, nome_x, x, s, e) {
     return element;
 }
 
-var result_element_2 = function(g, n, setacci, psv, psp) {
+var result_element_2 = function(n_prep, mg, nf1, nf2, qf1, err, sens) {
+    var element = '<div class="card">' +
+                    '<div class="card-body"><h6 class="card-subtitle mb-2 text-muted">Preparare '+n_prep+' preparazioni da '+mg+' mg avendo:</h6><br/>'+
+                    '<p>'+
+                          nf1 + ' ' + qf1 +' mg<br/>' +
+                          nf2 + ' qb<br/>' +
+                          'errore '+ err +' %<br/>' +
+                          'sensibilità '+sens+' mg'+
+                    '</p></div></div>';
+    return element;
+}
+
+var result_element_3 = function(g, n, setacci, psv, psp) {
     var start = '<div class="card"><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">1 componente da '+g+' gr, num setacci'+n+'<br/></h6><table class="table table-sm table-bordered table-striped"><thead><tr><td>Apertura</td><td>Peso set. vuoto</td><td>Peso set. pieno</td></tr></thead><tbody>';
     var end = '</tbody></table></div></div>'
 
@@ -135,6 +147,22 @@ var primo = function() {
     i += 1;
 }
 
+var secondo = function() {
+    var n_prep = genrand(6, 12);
+    var mg = genrand(120, 320);
+
+    var nf1 = farmaci[genrand(0, farmaci.length)];
+    var nf2 = farmaci[genrand(0, farmaci.length)];
+
+    var qf1 = gendoub(0, 2);
+    var err = gendoub(0, 4);
+    var sens = gendoub(0, 2);
+
+    $('#sb10').append(result_element_2(n_prep, mg, nf1, nf2, qf1, err, sens));
+    
+
+}
+
 var terzo = function() {
 
     var range_setacci = [[1000, 800], [500, 300], [200, 90], [89, 70], [69, 50]];
@@ -176,6 +204,6 @@ var terzo = function() {
 
     var g = gendoub(70,120);
 
-    $('#tb10').append(result_element_2(g, n_setacci.length, n_setacci, psv, psp));
+    $('#tb10').append(result_element_3(g, n_setacci.length, n_setacci, psv, psp));
     i += 1;
 }
