@@ -3,4 +3,5 @@ Hello there! The following links point to few resources about concepts, exercise
 ## Contents
 
 - [Building a simple frequency counter in Rust](rust/simple-counter/README.md).
-- [Punti 2D e Serie Temporali](fondamenti/ex/timeseries/README.md) [Tutoring Fondamenti di Programmazione, DEMACS, University of Calabria].
+- [Punti 2D e Serie Temporali](fondamenti/ex/timeseries/README.md) [Tutoring **Fondamenti di Programmazione**, DEMACS, University of Calabria].
+- [Come leggere da stdin senza un _tappo_](asd/read/README.md) [Risorse per **Algoritmi e Strutture Dati**, DEMACS, University of Calabria].
