@@ -20,7 +20,7 @@ L'implementazione è distinta in diverse parti (da fare insieme a tutoraggio opp
 
 ## Parte 1: la classe Point2D.h
 
-La classe `Punto2D` modella un punto in 2D. Nello specifico, un punto `p` è rappresentato da due coordinate `(x,y)`. Nella implementazione da effettuare, `x` è una coordinata intera, mentre `y` può essere definita come intera (`int`) o razionale (`float` o `double`).
+La classe `Punto2D.h` modella un punto in 2D. Nello specifico, un punto `p` è rappresentato da due coordinate `(x,y)`. Nella implementazione da effettuare, `x` è una coordinata intera, mentre `y` può essere definita come intera (`int`) o razionale (`float` o `double`).
 
 In particolare, la classe deve prevedere le seguenti funzionalità:
 
@@ -34,14 +34,14 @@ In particolare, la classe deve prevedere le seguenti funzionalità:
 
 ## Parte 2: la classe TimeSeries.h
 
-La classe TS rappresenta una serie temporale (nell'accezione data poco sopra). In particolare, la classe deve contenere una serie di punti contigui e deve dare la possibilità di aggiungerne di nuovi o rimuoverli. Attenzione: la contiguità deve essere sempre mantenuta. Con contiguità si intende che, dati due punti in posizione `i` e `i+1` con coordinate `(a,b), (c,d)`, essi sono contigui sse `c = a+1`.
+La classe `TimeSeries.h` rappresenta una serie temporale (nell'accezione data poco sopra). In particolare, la classe deve contenere una serie di punti contigui e deve dare la possibilità di aggiungerne di nuovi o rimuoverli. Attenzione: la contiguità deve essere sempre mantenuta. Con contiguità si intende che, dati due punti in posizione `i` e `i+1` con coordinate `(a,b), (c,d)`, essi sono contigui se e solo se `c = a+1`.
 
 Esempio di serie temporale corretta (la contiguità è mantenuta):
 ```
 (0, 3), (1, 4), (2, 2), (3, -2), (4, -6)
 ```
 
-Esempio di serie temporale non corretta:
+Esempio di serie temporale non corretta (la contiguità non è mantenuta):
 ```
 (0, 3), (1, 4), (3, 5), (4, -2), (5, -6)
 ```
@@ -55,4 +55,4 @@ La classe deve prevedere le seguenti funzionalità:
 - Verificare se due serie temporali sono uguali o differenti (due serie temporali sono uguali se contengono gli stessi punti 2D nello stesso ordine),
 - Aggiungere un punto 2D in coda ad una serie temporale,
 - Rimuovere un punto 2D in coda ad una serie temporale,
-- Rimuovere un punto 2D in testa alla serie temporale (e traslare tutte le coordinate `x` dei punti 2D seguenti di -1).
+- Rimuovere un punto 2D in testa alla serie temporale (e traslare tutti i punti a sinistra).
