@@ -9,7 +9,7 @@ while (getline(cin, temp)) {
      * a quando il contenuto da
      * leggere non termina */
      
-     // do something...
+    // do something...
 }
 ````
 oppure
@@ -17,12 +17,12 @@ oppure
 ````c++
 string temp;
 // cin legge fino ad ogni spazio
-while (cin >> temp)) {
+while (cin >> temp) {
     /* questo while gira fino
      * a quando il contenuto da
      * leggere non termina */
      
-     // do something...
+    // do something...
 }
 ````
 
