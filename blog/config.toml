@@ -1,9 +1,0 @@
-baseURL = "https://finalfire.github.io/blog/"
-languageCode = "en-us"
-title = "λx.x"
-theme = "basics"
-publishDir = "docs"
-
-[params]
-    author = "Francesco Cauteruccio"
-    github = "finalfire"
