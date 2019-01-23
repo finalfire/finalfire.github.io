@@ -35,9 +35,9 @@ var gendoub = function(a, b) {
 
 var gen_1 = function() {
 
-    var ph = gennum(8, 10, 0, 99);
-    var ka_int = gennum(4, 6, 0, 99);
-    var ka_exp = 10; //genrand(8, 11);
+    var ph = gennum(7, 8, 10, 99);
+    var ka_int = gennum(3, 5, 10, 99);
+    var ka_exp = genrand(9, 10);
 
     console.log(ka_exp);
 
