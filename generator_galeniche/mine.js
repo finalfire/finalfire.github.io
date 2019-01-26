@@ -34,7 +34,7 @@ var result_element_3 = function(mol, pm_sol, nome_sol, moli_b, x_a, x_b) {
 
 var result_element_4 = function(mol, pm_a, perc_a) {
     var element = '<div class="card"><div class="card-body">' +
-        '<p>Calcolare percentuale massa di una soluzione di A '+mol+' moli; massa H2O = 1000g; massa A = '+mol+' e PM(A) = '+pm_a+'</p>'+
+        '<p>Calcolare percentuale massa di una soluzione di A '+mol+' moli; massa H2O = 1000g; PM(A) = '+pm_a+'</p>'+
         '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my4'+i+'" aria-expanded="false" aria-controls="my4'+i+'">Soluzione</button>'+
         '<div class="collapse" id="my4'+i+'">'+
             '<p class="pt-3">% masssa = '+perc_a+'</p>'+
