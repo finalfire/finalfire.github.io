@@ -163,14 +163,12 @@ var gen_5 = function() {
 var gen_6 = function() {
     var mol_a = genrand(100,300) / 1000;
     var density_base = 1 + (genrand(10,88) / 1000);
-    var density_exp = -2;
-    if (Math.random() >= 0.5)
-        density_exp = -3;
+    var density_exp = -3;
     var pm_a = gennum(60,80,10,90);
     var massa_a = mol_a * pm_a;
 
     var massa_tot = 1000 + massa_a;
-    var V = massa_tot / (density_base * 10^(density_exp));
+    var V = massa_tot / (density_base) / 1000;
     var M = mol_a / V;
 
     $('#f6b10').append(result_element_6(mol_a, density_base, density_exp, pm_a, massa_a, massa_tot, V, M));
