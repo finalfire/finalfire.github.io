@@ -66,6 +66,17 @@ var result_element_6 = function(mol_a, density_base, density_exp, pm_a, massa_a,
     return element;
 }
 
+var result_element_7 = function(beta, ph, pka_v, pka, ka, num_ratio, cs_ca, ph_u, C, CA, CS) {
+    var element = '<div class="card"><div class="card-body">' +
+        '<p>acido A pKa = '+pka+'<br/>Rapporto sale/acido a produrre un ph = '+ph+' è stato trovato nell\'esempio ='+num_ratio+'/1; beta = '+beta+'</p>'+
+        '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my7'+i+'" aria-expanded="false" aria-controls="my7'+i+'">Soluzione</button>'+
+        '<div class="collapse" id="my7'+i+'">'+
+            '<p class="pt-3">CS/CA = '+cs_ca+'<br/>C = '+C+'<br/>CA = '+CA+'<br/>CS = '+CS+'</p>'+
+        '</div></div></div>';
+    
+    return element;
+}
+
 var genrand = function(min, max) {
     //return start + Math.floor(Math.random() * limit);
     return Math.floor(Math.random()*(max-min+1)+min);
@@ -172,4 +183,24 @@ var gen_6 = function() {
     var M = mol_a / V;
 
     $('#f6b10').append(result_element_6(mol_a, density_base, density_exp, pm_a, massa_a, massa_tot, V, M));
+    i += 1;
+}
+
+var gen_7 = function() {
+    var beta = genrand(1,10) / 10;
+    var ph = genrand(4,7);
+    var pka_v = genran(15,30) / 10;
+    var pka = ph - pka_v;
+    var ka = 10**(-1 * pka);
+    var num_ratio = ka;
+
+    var cs_ca = 10**(pka_v);
+    var ph_u = 10**(-1 * ph);
+
+    var C = beta / (2.3 * ((ka * ph_u)/((ka + ph_u)**2)));
+    var CA = C / (num_ratio + 1);
+    var CS = num_ration + CA;
+
+    $('#f7b10').append(result_element_7(beta, ph, pka_v, pka, ka, num_ratio, cs_ca, ph_u, C, CA, CS));
+    i += 1;
 }
