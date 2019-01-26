@@ -199,7 +199,7 @@ var gen_7 = function() {
 
     var C = beta / (2.3 * ((ka * ph_u)/((ka + ph_u)**2)));
     var CA = C / (num_ratio + 1);
-    var CS = num_ration + CA;
+    var CS = num_ratio + CA;
 
     $('#f7b10').append(result_element_7(beta, ph, pka_v, pka, ka, num_ratio, cs_ca, ph_u, C, CA, CS));
     i += 1;
