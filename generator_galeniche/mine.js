@@ -1,3 +1,20 @@
+var els = [
+    ["acido nitroso", "HNO2", 5.1, -1],
+    ["acido selenidrico", "H2Se", 1.7, -4],
+    ["ione cromico", "Cr(H2O)3+6", 1.5, -4],
+    ["acido benzoico", "C6H5COOH", 6.6, -5],
+    ["ione biossalato", "HOOCOO-", 5.5, -5],
+    ["acido acetico", "CH3COOH", 1.8, -5],
+    ["ione alluminio", "AI(H2O)3+6", 1.4, -5],
+    ["acido carbonico", "H2CO3", 4.4, -7],
+    ["acido solfidrico", "H2S", 1.0, -7],
+    ["ione fostato biacido", "H2PO-4", 6.3, -8],
+    ["ione bisolfito", "HSO-3", 6.2, -8],
+    ["ione ammonio", "NH+4", 5.7, -10],
+    ["ione bicarbonato", "HCO-3", 4.7, -11],
+    ["ione telluridrato", "HTe-", 1.0, -11]
+];
+
 var i = 0;
 var result_element = function(ph, ka_int, ka_exp, pka, sol) {
     var element = '<div class="card">' +
@@ -72,6 +89,17 @@ var result_element_7 = function(beta, ph, pka_v, pka, ka, num_ratio, cs_ca, ph_u
         '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my7'+i+'" aria-expanded="false" aria-controls="my7'+i+'">Soluzione</button>'+
         '<div class="collapse" id="my7'+i+'">'+
             '<p class="pt-3">CS/CA = '+cs_ca+'<br/>C = '+C+'<br/>CA = '+CA+'<br/>CS = '+CS+'</p>'+
+        '</div></div></div>';
+    
+    return element;
+}
+
+var result_element_8 = function(e_name, e_comp, e_value, e_exp, ph, beta) {
+    var element = '<div class="card"><div class="card-body">' +
+        '<p>'+e_name+' '+e_comp+', ka = '+e_value+' * 10^('+e_exp+'), pH='+ph+', beta='+beta+'</p>'+
+        '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my8'+i+'" aria-expanded="false" aria-controls="my8'+i+'">Soluzione</button>'+
+        '<div class="collapse" id="my8'+i+'">'+
+            '<p class="pt-3">No solution sgringhi <3</p>'+
         '</div></div></div>';
     
     return element;
@@ -202,5 +230,21 @@ var gen_7 = function() {
     var CS = num_ratio + CA;
 
     $('#f7b10').append(result_element_7(beta, ph, pka_v, pka, ka, num_ratio, cs_ca, ph_u, C, CA, CS));
+    i += 1;
+}
+
+var gen_8 = function() {
+    var idx = genrand(0, els.length-1);
+    var e_name = els[idx][0];
+    var e_comp = els[idx][1];
+    var e_value = els[idx][2];
+    var e_exp = els[idx][3];
+    
+    var beta = genrand(1,9) / 100;
+    var pka = Math.log10(e_value * 10**(e_exp)) * -1;
+    console.log(pka);
+    var ph = Math.ceil(pka + 1);
+
+    $('#f8b10').append(result_element_8(e_name, e_comp, e_value, e_exp, ph, beta));
     i += 1;
 }
