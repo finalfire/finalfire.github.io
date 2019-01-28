@@ -105,6 +105,17 @@ var result_element_8 = function(e_name, e_comp, e_value, e_exp, ph, beta) {
     return element;
 }
 
+var result_element_9 = function(ph, mol_1, mol_2, sol) {
+    var element = '<div class="card"><div class="card-body">' +
+        '<p>Calcolare la capacità tamponante beta di una soluzione con ph='+ph+' e costituita da '+mol_1+' moli di CH3COOH e '+mol_2+' moli di CH3COONa. Volume = 1 l</p>'+
+        '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my9'+i+'" aria-expanded="false" aria-controls="my9'+i+'">Soluzione</button>'+
+        '<div class="collapse" id="my9'+i+'">'+
+            '<p class="pt-3">beta = '+sol+' M</p>'+
+        '</div></div></div>';
+    
+    return element;
+}
+
 var genrand = function(min, max) {
     //return start + Math.floor(Math.random() * limit);
     return Math.floor(Math.random()*(max-min+1)+min);
@@ -246,5 +257,14 @@ var gen_8 = function() {
     var ph = Math.ceil(pka + 1);
 
     $('#f8b10').append(result_element_8(e_name, e_comp, e_value, e_exp, ph, beta));
+    i += 1;
+}
+
+var gen_9 = function() {
+    var ph = 4 + (genrand(40,80) / 100);
+    var mol = genrand(10,99) / 100;
+    var sol = 2.3 * ((mol + mol) / 4);
+
+    $('#f9b10').append(result_element_8(ph, mol, mol, sol));
     i += 1;
 }
