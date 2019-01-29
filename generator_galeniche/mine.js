@@ -294,6 +294,6 @@ var gen_10 = function() {
 
     var ka = '' + els[idx][2] + ' x 10^' + els[idx][3];
 
-    $('f10b10').append(result_element_9(mol, geq, mod, ka));
+    $('f10b10').append(result_element_10(mol, geq, mod, ka));
     i += 1;
 }
