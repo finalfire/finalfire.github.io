@@ -116,6 +116,17 @@ var result_element_9 = function(ph, mol_1, mol_2, sol) {
     return element;
 }
 
+var result_element_10 = function(mol, mod, ka) {
+    var element = '<div class="card"><div class="card-body">' +
+        '<p>Un tampone contiene '+mol+' di X e '+mol+' di Y. A questo tampone '+mod+'. Trovare beta e ph. ka = '+ka+';  Volume = 1 l</p>'+
+        '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my10'+i+'" aria-expanded="false" aria-controls="my10'+i+'">Soluzione</button>'+
+        '<div class="collapse" id="my10'+i+'">'+
+            '<p class="pt-3">Troppi ca**i sgringhiiiiii <3</p>'+
+        '</div></div></div>';
+    
+    return element;
+}
+
 var genrand = function(min, max) {
     //return start + Math.floor(Math.random() * limit);
     return Math.floor(Math.random()*(max-min+1)+min);
@@ -265,6 +276,24 @@ var gen_9 = function() {
     var mol = genrand(10,99) / 100;
     var sol = 2.3 * ((mol + mol) / 4);
 
-    $('#f9b10').append(result_element_8(ph, mol, mol, sol));
+    $('#f9b10').append(result_element_9(ph, mol, mol, sol));
+    i += 1;
+}
+
+var gen_10 = function() {
+    var idx = genrand(0, 6);
+    var mol = genrand(1, 9) / 10;
+    var geq = genrand(1,9) / 100;
+
+    var base_or_acid = genrand(1,2);
+    var mod = '';
+    if (base_or_acid == 1)
+        mod = 'si aggiungono ' + + ' di BASE B';
+    else
+        mod = 'si aggiungono ' + + ' di ACIDO A';
+
+    var ka = '' + els[idx][2] + ' x 10^' + els[idx][3];
+
+    $('f10b10').append(result_element_9(mol, geq, mod, ka));
     i += 1;
 }
