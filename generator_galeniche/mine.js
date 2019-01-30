@@ -127,6 +127,17 @@ var result_element_10 = function(mol, mod, ka_base, ka_exp, pm) {
     return element;
 }
 
+var result_element_11 = function(gl, ph, ka_b, ka_e) {
+    var element = '<div class="card"><div class="card-body">' +
+        '<p>VITC PM 176,2, la soluzione contiene sale acido ascobico '+hl+' g/l. Rapporto molare tra coso e coso? %? A pH = '+ph+', e ka = '+ka_b+' * 10^'+ka_e+'.</p>'+
+        '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my11'+i+'" aria-expanded="false" aria-controls="my11'+i+'">Soluzione</button>'+
+        '<div class="collapse" id="my11'+i+'">'+
+            '<p class="pt-3">Troppi ca**i sgringhiiiiii <3</p>'+
+        '</div></div></div>';
+    
+    return element;
+}
+
 var genrand = function(min, max) {
     //return start + Math.floor(Math.random() * limit);
     return Math.floor(Math.random()*(max-min+1)+min);
@@ -295,5 +306,21 @@ var gen_10 = function() {
     var pm = genrand(30,40);
 
     $('#f10b10').append(result_element_10(mol, mod, els[idx][2], els[idx][3], pm));
+    i += 1;
+}
+
+var gen_11 = function() {
+    var gl = genrand(50, 60);
+    var ph = 5 + (genrand(1, 9) / 10);
+    var ka_b = 0.0; var ka_e = 0.0;
+    if (Math.random() >= .5) {
+        ka_b = 4 + (genrand(10,80) / 10);
+        ka_e = -4;
+    } else {
+        ka_b = 5 + (genrand(10,80) / 10);
+        ka_e = -5;
+    }
+
+    $('#f11b10').append(result_element_11(gl, ph, ka_b, ka_e));
     i += 1;
 }
