@@ -129,7 +129,7 @@ var result_element_10 = function(mol, mod, ka_base, ka_exp, pm) {
 
 var result_element_11 = function(gl, ph, ka_b, ka_e) {
     var element = '<div class="card"><div class="card-body">' +
-        '<p>VITC PM 176,2, la soluzione contiene sale acido ascobico '+hl+' g/l. Rapporto molare tra coso e coso? %? A pH = '+ph+', e ka = '+ka_b+' * 10^'+ka_e+'.</p>'+
+        '<p>VITC PM 176,2, la soluzione contiene sale acido ascobico '+gl+' g/l. Rapporto molare tra coso e coso? %? A pH = '+ph+', e ka = '+ka_b+' * 10^'+ka_e+'.</p>'+
         '<button class="btn btn-primary" type="button" data-toggle="collapse" href="#my11'+i+'" aria-expanded="false" aria-controls="my11'+i+'">Soluzione</button>'+
         '<div class="collapse" id="my11'+i+'">'+
             '<p class="pt-3">Troppi ca**i sgringhiiiiii <3</p>'+
