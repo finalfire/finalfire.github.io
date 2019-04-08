@@ -12,3 +12,23 @@ Due siti consigliati: [https://en.cppreference.com/w/](cpprefernce.com) e [http:
 ## La classe `string`
 
 Inclusa con `#include <string>`, rappresenta una stringa (e.g., sequenza di simboli).
+
+````cpp
+string s1;              // vuota
+string s2("hello");     // "hello"
+string s3(s2);          // costruttore di copia
+string s4 = s2 + s3;    // concatenazione
+
+unsigned len_s2 = s2.size();    // lunghezza (5)
+
+char h = s2[0];         // accesso
+s2[1] = 'a';            // accesso + modifica
+
+// da string a c string
+const char* s2_in_cstr = s2.c_str();
+
+// estrarre da stream (stdin in questo caso) una stringa
+string from_cin;
+cin >> from_cin;
+
+````
