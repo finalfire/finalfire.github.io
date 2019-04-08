@@ -31,4 +31,12 @@ const char* s2_in_cstr = s2.c_str();
 string from_cin;
 cin >> from_cin;
 
+// s.substr(idx, k) estrae una sottostringa di s a partire dall'indice idx lunga k caratteri
+string hello = hello_world.substr(0, 5);    // "Hello"
+string world = hello_world.substr(7, 5);    // "World"
+
+// s.find(x) restituisce l'indice della prima occorrenza di x in s
+unsigned idx_comma = hello_world.find(',');     // 5
+unsigned idx_world = hello_world.find(world);   // 7
+
 ````
