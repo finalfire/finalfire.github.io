@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
+
+        <title>Punti 2D e Serie Temporali</title>
+
+        <link rel="stylesheet" href="/css/stylesheet.css">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-light">
+
+          
+          <span class="navbar-brand mb-0 h1"></span>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation" name="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link " href="/">Home</a>
+              <a class="nav-item nav-link" href="https://github.com/finalfire" target="_blank">GitHub</a>
+              
+              <a class="nav-item nav-link " href="/about/">About</a>
+            </div>
+          </div>
+        </nav>
+
+        <section id="page-title">
+          <h1><a href="/">λx.x</a></h1>
+          <span id="author-name">
+            <h6><a href="/about/">Francesco Cauteruccio</a></h6>
+          </span>
+        </section>
+
+
+<div class="blog-post">
+  <h1>Punti 2D e Serie Temporali</h1>
+  <div class="blog-post-subheader">
+    <time>01 Sep 2019</time>
+  </div>
+  <div class="blog-post-content">
+    
+
+<blockquote>
+<p>Questo post è parte del programma di tutoraggio per Fondamenti di Programmazione, <a href="https://mat.unical.it">DEMACS</a>, <a href="https://www.unical.it">University of Calabria</a>.</p>
+</blockquote>
+
+<p>Si vuole creare un programmino in <code>C++</code> per generare, manipolare e analizzare delle serie temporali (<em>time series</em>). Una serie temporale può essere espressa come una sequenza di punti in uno spazio 2D. Per esempio, la seguente sequenza</p>
+
+<pre><code>(0,23), (1,42), (2,-3), (3,11), (4,5)
+</code></pre>
+
+<p>rappresenta una serie temporale di 5 osservazioni (dall&rsquo;istante temporale 0 all&rsquo;istante temporale 4). La sua rappresentazione visuale è la seguente:</p>
+
+<p><img src="timeseries.png" alt="Esempio serie temporale" /></p>
+
+<p>Il programmino deve permettere di:</p>
+
+<ul>
+<li>creare e manipolare dei punti in 2D,</li>
+<li>creare e manipolare una serie temporale,</li>
+<li>effettuare diverse analisi su di una serie temporale.</li>
+</ul>
+
+<p>L&rsquo;implementazione è distinta in diverse parti (da fare insieme a tutoraggio oppure da soli) e non tutte le parti sono <em>attualmente</em> disponibili. Saranno disponibili man mano durante gli incontri di tutoring.</p>
+
+<h3 id="parte-1-la-classe-point2d-h">Parte 1: la classe Point2D.h</h3>
+
+<p>La classe <code>Punto2D.h</code> modella un punto in 2D. Nello specifico, un punto <code>p</code> è rappresentato da due coordinate <code>(x,y)</code>. Nella implementazione da effettuare, <code>x</code> è una coordinata intera, mentre <code>y</code> può essere definita come intera (<code>int</code>) o razionale (<code>float</code> o <code>double</code>).</p>
+
+<p>In particolare, la classe deve prevedere le seguenti funzionalità:</p>
+
+<ul>
+<li>Istanziare un punto 2D (in <code>(0,0)</code> oppure con le coordinate fornite dall&rsquo;utente),</li>
+<li>Copiare un punto 2D a partire da un altro punto 2D,</li>
+<li>Verificare se due punti 2D sono uguali o diversi,</li>
+<li>Effettuare la somma di due punti 2D (dove la somma è definita come la somma delle rispettive componenti),</li>
+<li>Effettuare la differenza di due punti 2D (dove la differenza è definita come la differenza delle rispettive componenti),</li>
+<li>Accedere a e modificare le componenti <code>x</code> e <code>y</code>,</li>
+<li>Una funzione definita come <code>friend</code> che permetta di stampare un punto su standard output (i.e., <code>cout</code>).</li>
+</ul>
+
+<h3 id="parte-2-la-classe-timeseries-h">Parte 2: la classe TimeSeries.h</h3>
+
+<p>La classe <code>TimeSeries.h</code> rappresenta una serie temporale (nell&rsquo;accezione data poco sopra). In particolare, la classe deve contenere una serie di punti contigui e deve dare la possibilità di aggiungerne di nuovi o rimuoverli. Attenzione: la contiguità deve essere sempre mantenuta. Con contiguità si intende che, dati due punti in posizione <code>i</code> e <code>i+1</code> con coordinate <code>(a,b), (c,d)</code>, essi sono contigui se e solo se <code>c = a+1</code>.</p>
+
+<p>Esempio di serie temporale corretta (la contiguità è mantenuta):</p>
+
+<pre><code>(0, 3), (1, 4), (2, 2), (3, -2), (4, -6)
+</code></pre>
+
+<p>Esempio di serie temporale non corretta (la contiguità non è mantenuta):</p>
+
+<pre><code>(0, 3), (1, 4), (3, 5), (4, -2), (5, -6)
+</code></pre>
+
+<p>La classe deve prevedere le seguenti funzionalità:</p>
+
+<ul>
+<li>Creazione di una serie temporale vuota,</li>
+<li>Creazione di una serie temporale a partire da un array di punti 2D,</li>
+<li>Copiare una serie temporale a partire da un&rsquo;altra serie temporale,</li>
+<li>Verificare se la contiguità di una serie temporale è mantenuta o meno,</li>
+<li>Verificare se due serie temporali sono uguali o differenti (due serie temporali sono uguali se contengono gli stessi punti 2D nello stesso ordine),</li>
+<li>Aggiungere un punto 2D in coda ad una serie temporale,</li>
+<li>Rimuovere un punto 2D in coda ad una serie temporale,</li>
+<li>Rimuovere un punto 2D in testa alla serie temporale (e traslare tutti i punti a sinistra).</li>
+</ul>
+
+  </div>
+</div>
+
+      <footer>
+        <hr>
+        <small>
+          &copy; 2019 Francesco Cauteruccio.
+          Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> using the <a href="https://github.com/arjunkrishnababu96/basics" target="_blank">Basics</a> theme.
+        </small>
+      </footer>
+    </div> 
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
+

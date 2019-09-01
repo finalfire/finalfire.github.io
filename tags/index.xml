@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on λx.x</title>
+    <link>https://finalfire.github.io/tags/</link>
+    <description>Recent content in Tags on λx.x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Sep 2019 11:41:04 +0200</lastBuildDate>
+    
+	<atom:link href="https://finalfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>c&#43;&#43;</title>
+      <link>https://finalfire.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Sun, 01 Sep 2019 11:41:04 +0200</pubDate>
+      
+      <guid>https://finalfire.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutoring</title>
+      <link>https://finalfire.github.io/tags/tutoring/</link>
+      <pubDate>Sun, 01 Sep 2019 11:41:04 +0200</pubDate>
+      
+      <guid>https://finalfire.github.io/tags/tutoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unical</title>
+      <link>https://finalfire.github.io/tags/unical/</link>
+      <pubDate>Sun, 01 Sep 2019 11:41:04 +0200</pubDate>
+      
+      <guid>https://finalfire.github.io/tags/unical/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on λx.x</title>
+    <link>https://finalfire.github.io/post/</link>
+    <description>Recent content in Posts on λx.x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Sep 2019 11:47:52 +0200</lastBuildDate>
+    
+	<atom:link href="https://finalfire.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Come leggere da stdin senza un tappo</title>
+      <link>https://finalfire.github.io/post/stdin/</link>
+      <pubDate>Sun, 01 Sep 2019 11:47:52 +0200</pubDate>
+      
+      <guid>https://finalfire.github.io/post/stdin/</guid>
+      <description>Questo post rappresenta una risorsa utile per gli studenti del corso di Algoritmi e Strutture Dati, DEMACS, University of Calabria.
+ In C++ (avendo #include &amp;lt;string&amp;gt; e using namespace std):
+string temp; // getline legge fino ad ogni \n while (getline(cin, temp)) { /* questo while gira fino * a quando il contenuto da * leggere non termina */ // do something... }  oppure
+string temp; // cin legge fino ad ogni spazio while (cin &amp;gt;&amp;gt; temp) { /* questo while gira fino * a quando il contenuto da * leggere non termina */ // do something.</description>
+    </item>
+    
+    <item>
+      <title>Punti 2D e Serie Temporali</title>
+      <link>https://finalfire.github.io/post/timeseries/</link>
+      <pubDate>Sun, 01 Sep 2019 11:41:04 +0200</pubDate>
+      
+      <guid>https://finalfire.github.io/post/timeseries/</guid>
+      <description>Questo post è parte del programma di tutoraggio per Fondamenti di Programmazione, DEMACS, University of Calabria.
+ Si vuole creare un programmino in C++ per generare, manipolare e analizzare delle serie temporali (time series). Una serie temporale può essere espressa come una sequenza di punti in uno spazio 2D. Per esempio, la seguente sequenza
+(0,23), (1,42), (2,-3), (3,11), (4,5)  rappresenta una serie temporale di 5 osservazioni (dall&amp;rsquo;istante temporale 0 all&amp;rsquo;istante temporale 4).</description>
+    </item>
+    
+  </channel>
+</rss>
