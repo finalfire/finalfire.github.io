@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
+
+        <title>Classe `string` e parserizzazione dell&#39;input in C&#43;&#43;: un (piccolissimo) tutorial</title>
+
+        <link rel="stylesheet" href="/css/stylesheet.css">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-light">
+
+          
+          <span class="navbar-brand mb-0 h1"></span>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation" name="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link " href="/">Home</a>
+              <a class="nav-item nav-link" href="https://github.com/finalfire" target="_blank">GitHub</a>
+              
+              <a class="nav-item nav-link " href="/about/">About</a>
+            </div>
+          </div>
+        </nav>
+
+        <section id="page-title">
+          <h1><a href="/">λx.x</a></h1>
+          <span id="author-name">
+            <h6><a href="/about/">Francesco Cauteruccio</a></h6>
+          </span>
+        </section>
+
+
+<div class="blog-post">
+  <h1>Classe `string` e parserizzazione dell&#39;input in C&#43;&#43;: un (piccolissimo) tutorial</h1>
+  <div class="blog-post-subheader">
+    <time>01 Sep 2019</time>
+  </div>
+  <div class="blog-post-content">
+    
+
+<blockquote>
+<p>Questo post rappresenta una risorsa utile per gli studenti del corso di  Algoritmi e Strutture Dati, <a href="https://mat.unical.it">DEMACS</a>, <a href="https://www.unical.it">University of Calabria</a>.</p>
+</blockquote>
+
+<p>Lo scopo del seguente documento è fornire un <em>quick&rsquo;n&rsquo;dirty</em> tutorial sulla manipolazione e parserizzazione di stringhe in C++.
+Il tutorial è diviso in due parti:</p>
+
+<ul>
+<li><strong>manipolazione</strong>: come definire, utilizzare e modificare istanze della classe <code>string</code>;</li>
+<li><strong>parserizzazione</strong>: come parserizzare (<em>to parse</em>) del contenuto informativo rappresentato da stringhe.</li>
+</ul>
+
+<p>Ovviamente questo documento non è (e non vuole essere) <em>esplicativo</em>. Tutti i concetti presentati <strong>dovrebbero</strong> (è consigliato farlo, NdR) essere integrati con delle ricerche personali e/o valutative.
+Due siti consigliati: <a href="cpprefernce.com">https://en.cppreference.com/w/</a> e <a href="cplusplus.com">http://www.cplusplus.com/reference/</a>. Per chi preferisce il cartaceo, consiglio Stroustrup, B. <em>The C++ programming language</em>. Pearson Education, 2013.</p>
+
+<h2 id="la-classe-string">La classe <code>string</code></h2>
+
+<p>Inclusa con <code>#include &lt;string&gt;</code>, rappresenta una stringa (e.g., sequenza di simboli).</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">string</span> <span class="n">s1</span><span class="p">;</span>              <span class="c1">// vuota
+</span><span class="c1"></span><span class="n">string</span> <span class="nf">s2</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">);</span>     <span class="c1">// &#34;hello&#34;
+</span><span class="c1"></span><span class="n">string</span> <span class="nf">s3</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>          <span class="c1">// costruttore di copia
+</span><span class="c1"></span><span class="n">string</span> <span class="n">s4</span> <span class="o">=</span> <span class="n">s2</span> <span class="o">+</span> <span class="n">s3</span><span class="p">;</span>    <span class="c1">// concatenazione
+</span><span class="c1"></span>
+<span class="kt">unsigned</span> <span class="n">len_s2</span> <span class="o">=</span> <span class="n">s2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>    <span class="c1">// lunghezza (5)
+</span><span class="c1"></span>
+<span class="kt">char</span> <span class="n">h</span> <span class="o">=</span> <span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>         <span class="c1">// accesso
+</span><span class="c1"></span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>            <span class="c1">// accesso + modifica
+</span><span class="c1"></span>
+<span class="c1">// Da string a c string
+</span><span class="c1"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s2_in_cstr</span> <span class="o">=</span> <span class="n">s2</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+
+<span class="c1">// Estrarre da stream (stdin in questo caso) una stringa
+</span><span class="c1"></span><span class="n">string</span> <span class="n">from_cin</span><span class="p">;</span>
+<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">from_cin</span><span class="p">;</span>
+
+<span class="c1">// s.substr(idx, k) estrae una sottostringa di s a partire dall&#39;indice idx lunga k caratteri
+</span><span class="c1"></span><span class="n">string</span> <span class="n">hello</span> <span class="o">=</span> <span class="n">hello_world</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>    <span class="c1">// &#34;Hello&#34;
+</span><span class="c1"></span><span class="n">string</span> <span class="n">world</span> <span class="o">=</span> <span class="n">hello_world</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>    <span class="c1">// &#34;World&#34;
+</span><span class="c1"></span>
+<span class="c1">// s.find(x) restituisce l&#39;indice della prima occorrenza di x in s
+</span><span class="c1"></span><span class="kt">unsigned</span> <span class="n">idx_comma</span> <span class="o">=</span> <span class="n">hello_world</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">);</span>     <span class="c1">// 5
+</span><span class="c1"></span><span class="kt">unsigned</span> <span class="n">idx_world</span> <span class="o">=</span> <span class="n">hello_world</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">world</span><span class="p">);</span>   <span class="c1">// 7
+</span><span class="c1"></span>
+<span class="c1">// Avendo operator[] possiamo trattare una istanza di string come se fosse un array
+</span><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">hello_world</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">hello_world</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+<span class="cm">/* Acquisire una stringa da stdin.*/</span>
+<span class="n">string</span> <span class="n">temp</span><span class="p">;</span>
+<span class="n">string</span> <span class="n">temp1</span><span class="p">,</span> <span class="n">temp2</span><span class="p">;</span>
+
+<span class="c1">// getline permette di leggere il contenuto dello stream cin fino all&#39;endline (quindi una riga intera)
+</span><span class="c1"></span><span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">temp</span><span class="p">);</span>
+<span class="c1">// cin, utilizzato con operator&gt;&gt;, permette invece di leggere il contenuto fino al primo spazio oppure endline
+</span><span class="c1"></span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">temp1</span> <span class="o">&gt;&gt;</span> <span class="n">temp2</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="parsing-di-una-stringa">Parsing di una stringa</h2>
+
+<p>Con parsing intendiamo l&rsquo;interpretazione del contenuto di una stringa.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// Esempio: da stringa a intero.
+</span><span class="c1"></span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&#34;42&#34;</span><span class="p">;</span>
+
+<span class="c1">// SOLO C++11: si può usare std::stoi(string)
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>   <span class="c1">// 42
+</span><span class="c1"></span>
+<span class="c1">// C++98/03: si può usare un oggetto istringstream (input string stream) (#include &lt;sstream&gt;)
+</span><span class="c1">// Essenzialmente, un istringstream permette di manipolare una stringa come se fosse uno stream
+</span><span class="c1">// Ricordate che cin converte automaticamente ad intero?
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// in stdin possiamo inserire un intero (che sarà letto come stringa)
+</span><span class="c1">// che sarà poi interpretato in un intero, e y conterrà il valore inserito in stdin.
+</span><span class="c1"></span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
+<span class="c1">// Ecco, con uno istringstream possiamo essenzialmente fare la stessa cosa:
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">istringstream</span> <span class="nf">iss</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="n">iss</span> <span class="o">&gt;&gt;</span> <span class="n">z</span><span class="p">;</span>   <span class="c1">// z conterrà 42
+</span><span class="c1"></span>
+<span class="c1">// Tutte le caratteristiche di cin restano invariate:
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="n">string</span> <span class="n">p</span> <span class="o">=</span> <span class="s">&#34;5 8 13&#34;</span><span class="p">;</span>
+<span class="n">istringstream</span> <span class="nf">take</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="n">take</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>   <span class="c1">// 5, 8, 13
+</span><span class="c1"></span>
+<span class="c1">// C++SeProprioVogliamoFarciMale: possiamo usare atoi(const char*)
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+</code></pre></div>
+
+  </div>
+</div>
+
+      <footer>
+        <hr>
+        <small>
+          &copy; 2019 Francesco Cauteruccio.
+          Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> using the <a href="https://github.com/arjunkrishnababu96/basics" target="_blank">Basics</a> theme.
+        </small>
+      </footer>
+    </div> 
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
+

@@ -6,10 +6,21 @@
     <description>Recent content in Posts on λx.x</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Sep 2019 11:47:52 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2019 11:49:43 +0200</lastBuildDate>
     
 	<atom:link href="https://finalfire.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Classe `string` e parserizzazione dell&#39;input in C&#43;&#43;: un (piccolissimo) tutorial</title>
+      <link>https://finalfire.github.io/post/string/</link>
+      <pubDate>Sun, 01 Sep 2019 11:49:43 +0200</pubDate>
+      
+      <guid>https://finalfire.github.io/post/string/</guid>
+      <description>Questo post rappresenta una risorsa utile per gli studenti del corso di Algoritmi e Strutture Dati, DEMACS, University of Calabria.
+ Lo scopo del seguente documento è fornire un quick&amp;rsquo;n&amp;rsquo;dirty tutorial sulla manipolazione e parserizzazione di stringhe in C++. Il tutorial è diviso in due parti:
+ manipolazione: come definire, utilizzare e modificare istanze della classe string; parserizzazione: come parserizzare (to parse) del contenuto informativo rappresentato da stringhe.  Ovviamente questo documento non è (e non vuole essere) esplicativo.</description>
+    </item>
     
     <item>
       <title>Come leggere da stdin senza un tappo</title>
