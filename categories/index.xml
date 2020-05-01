@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on λx.x</title>
-    <link>https://finalfire.github.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on λx.x</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Sep 2019 11:41:04 +0200</lastBuildDate>
     
-	<atom:link href="https://finalfire.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tutoring</title>
-      <link>https://finalfire.github.io/categories/tutoring/</link>
+      <link>/categories/tutoring/</link>
       <pubDate>Sun, 01 Sep 2019 11:41:04 +0200</pubDate>
       
-      <guid>https://finalfire.github.io/categories/tutoring/</guid>
+      <guid>/categories/tutoring/</guid>
       <description></description>
     </item>
     
