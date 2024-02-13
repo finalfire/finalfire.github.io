@@ -65,10 +65,11 @@ const handleMove = (currentBtn, gameInstance) => {
         gameInstance.state = 1;
     // stato 1: una seconda carta è stata flippata, check se accoppiata con la prima
     } else {
-        flipCard(currentCard, currentCard.value, gameInstance);
 
         //await delay(1000);
-        setTimeout(() => {}, 1000);
+        setTimeout(() => {
+            flipCard(currentCard, currentCard.value, gameInstance);
+        }, 1000);
 
         if (currentCard.btn.textContent === gameInstance.lastCard.btn.textContent) {
             currentCard.available = false;
