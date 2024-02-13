@@ -1,6 +1,6 @@
-const delay = (time) => {
+/*const delay = (time) => {
     return new Promise(resolve => setTimeout(resolve, time));
-};
+};*/
   
 
 // Genera i simboli per ogni bottone
@@ -49,7 +49,7 @@ const flipCard = (card, value, gameInstance) => {
     card.btn.textContent = value;
 }
 
-const handleMove = async (currentBtn, gameInstance) => {
+const handleMove = (currentBtn, gameInstance) => {
     let currentCard = gameInstance.cards.find(card => card.btn === currentBtn);
 
     if (!currentCard.available)
@@ -67,7 +67,8 @@ const handleMove = async (currentBtn, gameInstance) => {
     } else {
         flipCard(currentCard, currentCard.value, gameInstance);
 
-        await delay(1000);
+        //await delay(1000);
+        setTimeout(() => {}, 1000);
 
         if (currentCard.btn.textContent === gameInstance.lastCard.btn.textContent) {
             currentCard.available = false;
