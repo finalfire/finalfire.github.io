@@ -1,6 +1,6 @@
-/*const delay = (time) => {
+const delay = (time) => {
     return new Promise(resolve => setTimeout(resolve, time));
-};*/
+};
   
 
 // Genera i simboli per ogni bottone
@@ -49,7 +49,10 @@ const flipCard = (card, value, gameInstance) => {
     card.btn.textContent = value;
 }
 
-const handleMove = (currentBtn, gameInstance) => {
+const handleMove = async (currentBtn, gameInstance) => {
+    if (!gameInstance.isInteractive)
+        return;
+
     let currentCard = gameInstance.cards.find(card => card.btn === currentBtn);
 
     if (!currentCard.available)
@@ -65,11 +68,11 @@ const handleMove = (currentBtn, gameInstance) => {
         gameInstance.state = 1;
     // stato 1: una seconda carta è stata flippata, check se accoppiata con la prima
     } else {
-
-        //await delay(1000);
-        setTimeout(() => {
-            flipCard(currentCard, currentCard.value, gameInstance);
-        }, 1000);
+        flipCard(currentCard, currentCard.value, gameInstance);
+        
+        gameInstance.isInteractive = false;
+        await delay(1000);
+        gameInstance.isInteractive = true;
 
         if (currentCard.btn.textContent === gameInstance.lastCard.btn.textContent) {
             currentCard.available = false;
@@ -94,7 +97,9 @@ class Game {
     // 1 -> una carta scoperta
     state = 0;
     // numero di mosse
-    nMoves= 0;
+    nMoves = 0;
+    // la griglia è interattiva
+    isInteractive = true;
 
     // tutte le carte attualmente disponibili
     cards = generateButtons();
