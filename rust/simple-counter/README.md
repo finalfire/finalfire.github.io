@@ -1,1 +1,0 @@
-# Building a simple frequency counter in Rust
